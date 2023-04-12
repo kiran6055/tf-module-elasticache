@@ -53,7 +53,7 @@ resource "aws_elasticache_replication_group" "elasticache" {
 
   tags = merge(
     local.common_tags,
-    { Name = "${var.env}-elasticache" }
+    { Name = "${var.env}-elasticache " }
   )
 
 
