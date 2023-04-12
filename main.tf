@@ -48,7 +48,7 @@ resource "aws_elasticache_replication_group" "elasticache" {
   automatic_failover_enabled = true
   subnet_group_name = aws_elasticache_subnet_group.default.name
   security_group_ids = [aws_security_group.elasticache.id]
-  replicas_per_node_group = var_replicas_per_node_group
+  replicas_per_node_group = var.replicas_per_node_group
   num_node_groups         = var.num_node_groups
 
   tags = merge(
