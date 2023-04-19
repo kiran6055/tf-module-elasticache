@@ -67,7 +67,6 @@ resource "aws_elasticache_cluster" "elastic_cache" {
   num_cache_nodes      = var.num_cache_nodes
   engine_version       = var.engine_version
   port                 = 6379
-
   subnet_group_name = aws_elasticache_subnet_group.default.name
   security_group_ids = [aws_security_group.elasticache.id]
 
@@ -78,6 +77,3 @@ resource "aws_elasticache_cluster" "elastic_cache" {
 
 }
 
-output "redis" {
-  value = aws_elasticache_cluster.elastic_cache.cache_nodes[0].address
-}
