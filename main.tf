@@ -40,27 +40,27 @@ resource "aws_security_group" "elasticache" {
 
 # creating elasticache cluster
 
-resource "aws_elasticache_cluster" "elasticache" {
-  replication_group_id       = "${var.env}-elasticache"
-  description                = "${var.env}-elasticache"
-  node_type                  = var.node_type
-  port                       = 6379
-  automatic_failover_enabled = true
-  subnet_group_name = aws_elasticache_subnet_group.default.name
-  security_group_ids = [aws_security_group.elasticache.id]
-  replicas_per_node_group = var.replicas_per_node_group
-  num_node_groups         = var.num_node_groups
+#resource "aws_elasticache_cluster" "elasticache" {
+#  replication_group_id       = "${var.env}-elasticache"
+#  description                = "${var.env}-elasticache"
+#  node_type                  = var.node_type
+#  port                       = 6379
+#  automatic_failover_enabled = true
+#  subnet_group_name = aws_elasticache_subnet_group.default.name
+#  security_group_ids = [aws_security_group.elasticache.id]
+#  replicas_per_node_group = var.replicas_per_node_group
+#  num_node_groups         = var.num_node_groups
 
-  tags = merge(
-    local.common_tags,
-    { Name = "${var.env}-elasticache " }
-  )
-
-
-}
+#  tags = merge(
+#    local.common_tags,
+#    { Name = "${var.env}-elasticache " }
+# )
 
 
-resource "aws_elasticache_cluster" "elastic_chache" {
+#}
+
+
+resource "aws_elasticache_cluster" "elastic_cache" {
   cluster_id           = "${var.env}-elasticache"
   engine               = "redis"
   node_type            = var.node_type
