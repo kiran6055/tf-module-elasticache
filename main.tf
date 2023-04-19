@@ -76,7 +76,10 @@ resource "aws_elasticache_cluster" "elasticache" {
 
 }
 
-output "redis" {
-  value = aws_elasticache_cluster.elasticache.cache_nodes[0].address
+# creating aws ssm parameter user for docdb for running and adding schemaload which is given in app main
 
+resource "aws_ssm_parameter" "elasticache_endpoint" {
+  name  = "${var.env}.elasticache.Endpoint"
+  type  = "String"
+  value = aws_elasticache_cluster.elasticache.cache_nodes[0].address
 }
