@@ -76,7 +76,7 @@ resource "aws_elasticache_cluster" "elasticache" {
 
 }
 
-output "" {
+output "redis" {
   value = aws_elasticache_cluster.elasticache
 
 }
