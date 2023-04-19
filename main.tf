@@ -73,4 +73,10 @@ resource "aws_elasticache_cluster" "elasticache" {
     local.common_tags,
     { Name = "${var.env}-elasticache" }
   )
+
+}
+
+output "" {
+  value = aws_elasticache_cluster.elasticache
+
 }
